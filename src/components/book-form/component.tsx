@@ -18,7 +18,7 @@ export const BookForm: FC<IBookFormProps> = ({ open, mode, initialValues, onSubm
 	return (
 		<Collapse in={open}>
 			<form onSubmit={handleSubmit}>
-				<Grid container spacing={1}>
+				<Grid container spacing={1} paddingTop={1}>
 					<Grid item xs={12} md={6}>
 						<TextField
 							label='Title'

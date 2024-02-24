@@ -1,0 +1,1 @@
+export { UpdateBook } from './component';

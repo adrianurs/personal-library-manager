@@ -10,6 +10,7 @@ export const BookMark = styled(Box)(({ theme }) => ({
 	borderTop: 'none',
 	borderLeft: `30px solid ${theme.palette.secondary.light}`,
 	borderRight: `30px solid ${theme.palette.secondary.light}`,
+	marginBottom: 30,
 	cursor: 'pointer',
 	':hover': {
 		borderLeft: `30px solid ${theme.palette.secondary.main}`,
