@@ -1,0 +1,1 @@
+export { BooksLibrary } from './component';
