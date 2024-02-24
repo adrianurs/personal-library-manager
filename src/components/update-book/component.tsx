@@ -22,7 +22,7 @@ export const UpdateBook: FC<IUpdateBookProps> = ({ book }) => {
 				</IconButton>
 			</Tooltip>
 			<Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
-				<DialogTitle display='flex' justifyContent='space-between' alignItems="center">
+				<DialogTitle component="div" display='flex' justifyContent='space-between' alignItems="center">
 					<Typography variant='h6'>
 						Update {book.title} - {book.author}
 					</Typography>

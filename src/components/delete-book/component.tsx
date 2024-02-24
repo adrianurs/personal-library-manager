@@ -22,9 +22,7 @@ export const DeleteBook: FC<IDeleteBookProps> = ({book}) => {
 			</Tooltip>
 			<Dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
 				<DialogTitle display='flex' justifyContent='space-between'>
-					<Typography variant='h6'>
 						Delete {book.title} - {book.author}
-					</Typography>
 				</DialogTitle>
 				<DialogContent>
 					<Typography>Are you sure to delete "{book.title}" by "{book.author}" from your library?</Typography>
