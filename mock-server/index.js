@@ -1,4 +1,3 @@
-const mockData = require('./mock_data.json');
 const express = require("express");
 const cors = require("cors");
 
@@ -9,7 +8,7 @@ app.use(express.json());
 // This will store our books in memory,
 // "id" is the unique identifier,
 // other fields are up to you
-let books = [...mockData];
+let books = [];
 
 // Get all books
 app.get("/books", (req, res) => {
