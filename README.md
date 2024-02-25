@@ -32,7 +32,7 @@
    ```
 4. Include the next .env file in the project root
    ```sh
-   REACT_APP_API_URL=http://localhost:3001;
+   REACT_APP_API_URL=http://localhost:3001
    ```
 
 5. Start the server from `mock-server` folder
