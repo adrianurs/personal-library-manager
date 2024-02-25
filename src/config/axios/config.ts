@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { API_URL } from '../../constants';
+import env_config from '../../env.config';
 
-const request = axios.create({ baseURL: API_URL });
+const request = axios.create({ baseURL: env_config.api_url });
 
 export { request };

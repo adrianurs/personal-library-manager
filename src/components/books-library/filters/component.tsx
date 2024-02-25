@@ -9,8 +9,7 @@ export const Filters: FC = () => {
 		const values = e.target.value as string[];
 		if (!genreFilters.length && values.includes('All'))
 			filterGenres(values.filter((value) => value !== 'All') as BookGenre[]);
-			else if (values.includes('All'))
-			filterGenres([]);
+		else if (values.includes('All')) filterGenres([]);
 		else filterGenres(values as BookGenre[]);
 	};
 
