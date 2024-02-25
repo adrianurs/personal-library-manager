@@ -6,7 +6,7 @@ import booksTableColumns from './columns.json';
 import { useFiltersContext } from '../../providers/filters';
 
 export const TableView: FC = () => {
-	const { filteredData: books } = useFiltersContext();
+	const { pagedData: books } = useFiltersContext();
 
 	const memoizedBooks = useMemo(() => (
 		books?.map(book => ({

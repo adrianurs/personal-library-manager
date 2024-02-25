@@ -38,7 +38,8 @@ export const FiltersProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	return (
 		<FiltersContext.Provider
 			value={{
-				filteredData: pagedBooks || [],
+				filteredData: filteredBooks || [],
+				pagedData: pagedBooks || [],
 				currentPage,
 				genreFilters,
 				search,

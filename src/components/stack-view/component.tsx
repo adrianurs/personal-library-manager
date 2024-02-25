@@ -4,7 +4,7 @@ import { BookCard } from '../book-card';
 import { useFiltersContext } from '../../providers';
 
 export const StackView: FC = () => {
-	const { filteredData: books } = useFiltersContext();
+	const { pagedData: books } = useFiltersContext();
 
 	return (
 		<Masonry columns={{ xs: 1, sm: 3, md: 6 }} spacing={2}>
