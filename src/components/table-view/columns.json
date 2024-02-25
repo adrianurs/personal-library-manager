@@ -1,0 +1,31 @@
+[
+	{
+		"key": "title",
+		"label": "Title",
+		"width": 150,
+		"align": "center"
+	},
+	{
+		"key": "author",
+		"label": "Author",
+		"width": 150,
+		"align": "left"
+	},
+	{
+		"key": "genre",
+		"label": "Genre",
+		"width": 100,
+		"align": "center"
+	},
+	{
+		"key": "description",
+		"label": "Description",
+		"width": 150,
+		"align": "left"
+	},
+	{
+		"key": "actions",
+		"label": "",
+		"align": "right"
+	}
+]

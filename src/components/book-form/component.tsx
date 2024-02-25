@@ -1,16 +1,16 @@
 import { FC } from 'react';
 import { Button, Grid, MenuItem, TextField, Collapse } from '@mui/material';
 import { useFormik } from 'formik';
-import { IBook, IBookSubmit, bookGenres } from '../../providers';
+import { bookGenres } from '../../providers';
 import { IBookFormProps } from './types';
 import { validationSchema } from './validationSchema';
 
 export const BookForm: FC<IBookFormProps> = ({ open, mode, initialValues, onSubmit }) => {
-	const { values, handleChange, resetForm, handleSubmit, errors, isValid } = useFormik({
-		initialValues: initialValues as IBook | IBookSubmit,
+	const { values, handleChange, resetForm, handleSubmit, errors, isValid, dirty } = useFormik({
+		initialValues: initialValues,
 		onSubmit: (data) => { 
 			onSubmit(data);
-			resetForm();
+			mode === 'add' && resetForm();
 		},
 		validationSchema
 	});
@@ -43,6 +43,7 @@ export const BookForm: FC<IBookFormProps> = ({ open, mode, initialValues, onSubm
 					</Grid>
 					<Grid item xs={12} md={6}>
 						<TextField
+							// InputLabelProps - inputProps added to avoid mui issue for incorrect use of label for  
 							InputLabelProps={{ htmlFor: 'genre-input' }}
 							inputProps={{ id: 'genre-input' }}
 							label='Genre'
@@ -70,7 +71,8 @@ export const BookForm: FC<IBookFormProps> = ({ open, mode, initialValues, onSubm
 						/>
 					</Grid>
 					<Grid container item xs={12} justifyContent='flex-end'>
-						<Button disabled={!isValid} type='submit'>{mode === 'add' ? 'Add book' : 'Update book'}</Button>
+						<Button color="secondary" onClick={() => resetForm()}>Reset</Button>
+						<Button disabled={!isValid || !dirty} type='submit'>{mode === 'add' ? 'Add book' : 'Update book'}</Button>
 					</Grid>
 				</Grid>
 			</form>

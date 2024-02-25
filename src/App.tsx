@@ -1,16 +1,18 @@
-import { CssBaseline } from '@mui/material';
-import { Home } from './pages';
-import { BooksProvider, ThemeProvider } from './providers';
+import { ThemeProvider, BooksProvider, FiltersProvider } from './providers';
 import { Layout } from './components';
+import { Home } from './pages';
+import { CssBaseline } from '@mui/material';
 
 function App() {
 	return (
 		<ThemeProvider>
 			<CssBaseline />
-      <BooksProvider>
-        <Layout>
-          <Home />
-        </Layout>
+			<BooksProvider>
+				<FiltersProvider>
+					<Layout>
+						<Home />
+					</Layout>
+				</FiltersProvider>
 			</BooksProvider>
 		</ThemeProvider>
 	);

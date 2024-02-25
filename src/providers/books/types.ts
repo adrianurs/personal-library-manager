@@ -14,7 +14,7 @@ export interface IBook extends IBookSubmit {
 }
 
 export interface IBooksContext {
-	books: IBook[];
+	books?: IBook[];
 	loading: boolean;
 	addBook: (book: IBookSubmit) => Promise<void>;
 	updateBook: (book: IBook) => Promise<void>;

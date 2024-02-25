@@ -25,7 +25,7 @@ export const DeleteBook: FC<IDeleteBookProps> = ({book}) => {
 						Delete {book.title} - {book.author}
 				</DialogTitle>
 				<DialogContent>
-					<Typography>Are you sure to delete "{book.title}" by "{book.author}" from your library?</Typography>
+					<Typography>Are you sure to delete <strong>"{book.title}"</strong> by <strong>{book.author}</strong> from your library?</Typography>
 				</DialogContent>
 				<DialogActions>
 					<Button color="secondary" onClick={() => setIsDialogOpen(false)}>Cancel</Button>

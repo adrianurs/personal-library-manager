@@ -6,7 +6,9 @@ import useSWR from 'swr';
 import { IBook, IBookSubmit } from './types';
 
 export const BooksProvider: FC<{ children: ReactNode }> = ({ children }) => {
-	const { data: books, isLoading: loading, mutate } = useSWR('/books', fetcher);
+	const { data: books, isLoading: loading, mutate } = useSWR('/books', fetcher, {
+		revalidateOnFocus: false
+	});
 
 	const addBook = useCallback(async (book: IBookSubmit) => {
 		try {
@@ -23,8 +25,10 @@ export const BooksProvider: FC<{ children: ReactNode }> = ({ children }) => {
 			const bookUpdated = await putBook(book); 
 			const tempBooks = [...(books as IBook[])];
 			const indexUpdated = tempBooks.findIndex(b => b.id === bookUpdated.id);
-			tempBooks.splice(indexUpdated, 1, bookUpdated);
-			mutate(tempBooks);
+			if (indexUpdated >= 0) {
+				tempBooks.splice(indexUpdated, 1, bookUpdated);
+				mutate(tempBooks);
+			}
 		} catch (e) {
 			const error = e as unknown as Error;
 			console.error(error.message);
@@ -36,8 +40,10 @@ export const BooksProvider: FC<{ children: ReactNode }> = ({ children }) => {
 			await deleteBookAction(bookId); 
 			const tempBooks = [...(books as IBook[])];
 			const indexDeleted = tempBooks.findIndex(b => b.id === bookId);
-			tempBooks.splice(indexDeleted, 1);
-			mutate(tempBooks);
+			if (indexDeleted >= 0) {
+				tempBooks.splice(indexDeleted, 1);
+				mutate(tempBooks);
+			}
 		} catch (e) {
 			const error = e as unknown as Error;
 			console.error(error.message);
@@ -47,7 +53,7 @@ export const BooksProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	return (
 		<BooksContext.Provider
 			value={{
-				books: books || [],
+				books: books,
 				loading,
 				addBook,
 				updateBook,
